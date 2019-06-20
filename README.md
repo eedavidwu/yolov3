@@ -39,16 +39,27 @@ https://blog.csdn.net/weixin_42731241/article/details/81474920
 <br>修改num_clusters：聚类类数量
 
 ## 修改cfg,data,name文件
-### For cfg:
-<br>参数理解：https://blog.csdn.net/weixin_42731241/article/details/81474920
+### For yolo-obj.cfg:
 <br> for the training: batch=64 subdivisions=8
 <br> (bofore yolo) filters= num*(class+5)/3 (3处)
 <br> 修改anchors,classes (3处)
+<br>参数理解：https://blog.csdn.net/weixin_42731241/article/details/81474920
+
+
+####（具体的内容：）
+<br> cp yolov3.cfg to yolo-obj.cfg 并修改 batch=64, subdivisions=8
+<br> 修改max_batches to (classes*2000), f.e. max_batches=6000 if you train for 3 classes
+<br> change line steps to 80% and 90% of max_batches, f.e. steps=4800,5400
+<br> change line classes=1 to your number of objects in each of 3 [yolo] layers:
+<br> change [filters=255] to filters=(classes + 5)xnum/3 in the 3 [convolutional] before each [yolo] layer. So if classes=1 then should be filters=18. If classes=2 then write filters=21. (Generally filters depends on the classes, coords and number of masks, i.e. filters=(classes + coords + 1)*<number of mask>, where mask is indices of anchors. If mask is absence, then filters=(classes + coords + 1)*num)
 
 ### For person_obj.names:
+<br> Create obj.names in the directory with objects names - each in new line 
+<br> 如：
 <br>person
 <br>cat
-<br>等等
+
+
 
 ### For person_obj.data::
 <br>classes= 1
