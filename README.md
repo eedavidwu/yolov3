@@ -1,8 +1,3 @@
-YOLOV3参数理解：
-https://blog.csdn.net/weixin_42731241/article/details/81474920
-
-
-
 # 下载与测试darknet yolo：
 <br>git clone https://github.com/pjreddie/darknet
 <br>cd darknet
