@@ -16,6 +16,18 @@ python yolo_eval.py \
     --imagesetfile=/datasets/pedestrian_dataset/yolo_style/shuffle_test_in.txt\
     --classname='0'
 #code
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+'''
+@File    :   ssh.py    
+@Contact :   hupeng25@huawei.com
+@License :   (C)Copyright 2018-2019
+
+@Modify Time      @Author    @Version    @Desciption
+------------      -------    --------    -----------
+2/18/19 7:08 AM   gxrao      1.0         None
+'''
+
 import numpy as np
 import os
 import cPickle
@@ -93,11 +105,12 @@ def parse_rec(filepath, imgpath):
     return object
 
 def voc_ap(rec, prec, use_07_metric=False):
-    """ ap = voc_ap(rec, prec, [use_07_metric])
+    ''' 
+    ap = voc_ap(rec, prec, [use_07_metric])
     Compute VOC AP given precision and recall.
     If use_07_metric is true, uses the
     VOC 07 11 point method (default:False).
-    """
+    '''
     if use_07_metric:
         # 11 point metric
         ap = 0.
@@ -132,7 +145,8 @@ def voc_eval(detpath,
              cachedir,
              ovthresh=0.5,
              use_07_metric=False):
-    """rec, prec, ap = voc_eval(detpath,
+    '''
+    rec, prec, ap = voc_eval(detpath,
                                 annopath,
                                 imagesetfile,
                                 classname,
@@ -172,7 +186,7 @@ def voc_eval(detpath,
         set_path = r'/home/hupeng/data/with_test/image_set/test_in.txt'
         image_path = r'/home/hupeng/data/ordinary/image'
         save_txt = r'/home/hupeng/data/ordinary/ssh_test_in.txt'
-    """
+    '''
     # assumes detections are in detpath.format(classname)
     # assumes annotations are in annopath.format(imagename)
     # assumes imagesetfile is a text file with each line an image name
