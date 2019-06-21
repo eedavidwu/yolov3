@@ -1,3 +1,4 @@
+reference:https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects
 # 下载与测试darknet yolo：
 <br>git clone https://github.com/pjreddie/darknet
 <br>cd darknet
@@ -39,7 +40,8 @@
 <br> (bofore yolo) filters= num*(class+5)/3 (3处)
 <br> 修改anchors,classes (3处)
 <br>参数理解：https://blog.csdn.net/weixin_42731241/article/details/81474920
-
+<br>https://blog.csdn.net/jinlong_xu/article/details/76375334,
+<br>if (batch_num < net.burn_in) return net.learning_rate * pow((float)batch_num / net.burn_in, net.power); 
 
 ####（具体的内容：）
 <br> cp yolov3.cfg to yolo-obj.cfg 并修改 batch=64, subdivisions=8
