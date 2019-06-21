@@ -1,0 +1,11 @@
+classes= 1
+train  = /home/wuhaotian/darknet/Person/train.txt
+valid = /home/wuhaotian/darknet/Person/val.txt
+names = /home/wuhaotian/darknet/Person/cfg/person_obj.names
+backup = /home/wuhaotian/darknet/Person/backup
+
+
+
+
+yolov3.names:
+person
