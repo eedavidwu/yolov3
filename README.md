@@ -2,7 +2,8 @@ reference:https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom
 # 下载与测试darknet yolo：
 <br>git clone https://github.com/pjreddie/darknet
 <br>cd darknet
-<br>修改Makefiles文件，CUDA,OPENCV,GPU
+<br>修改Makefiles文件，CUDA,OPENCV,GPU，ARCH
+
 <br>make
 
 ## 测试下载的YOLO内容(下载权重后下载测试图片检测)：
@@ -42,7 +43,6 @@ reference:https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom
 <br>参数理解：https://blog.csdn.net/weixin_42731241/article/details/81474920
 <br>https://blog.csdn.net/jinlong_xu/article/details/76375334,
 <br>if (batch_num < net.burn_in) return net.learning_rate * pow((float)batch_num / net.burn_in, net.power); 
-
 ####（具体的内容：）
 <br> cp yolov3.cfg to yolo-obj.cfg 并修改 batch=64, subdivisions=8
 <br> 修改max_batches to (classes*2000), f.e. max_batches=6000 if you train for 3 classes
@@ -71,4 +71,14 @@ reference:https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom
 ## 开始训练：
 <br> ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74
 
+## 进行测试：
+<br> For normal Darknet:
+<br> ./darknet detector test cfg/openimages.data cfg/yolov3-openimages.cfg yolov3-50000.weights test.jpg -thresh 0.25
 
+
+
+<br> For AB:
+<br> 进行Valid得到结果：
+<br> ./darknet detector valid Person/yolov3.data  Person/yolov3.cfg ~/darknet/Person/backup/yolov3.backup
+<br> 进行Map计算：
+<br> ./darknet detector map Person/yolov3.data  Person/yolov3.cfg ~/darknet/Person/backup/yolov3_30000.weights
