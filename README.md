@@ -81,4 +81,4 @@ reference:https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom
 <br> 进行Valid得到结果：
 <br> ./darknet detector valid Person/yolov3.data  Person/yolov3.cfg ~/darknet/Person/backup/yolov3.backup
 <br> 进行Map计算：
-<br> ./darknet detector map Person/yolov3.data  Person/yolov3.cfg ~/darknet/Person/backup/yolov3_30000.weights
+<br> ./darknet detector map Person/yolov3.data  Person/yolov3.cfg ~/darknet/Person/backup/yolov3_30000.weights -iou thresh 0.3
