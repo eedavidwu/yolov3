@@ -1,6 +1,7 @@
 reference:https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects
 # 下载与测试darknet yolo：
 <br>git clone https://github.com/pjreddie/darknet
+<br>git clone https://github.com/AlexeyAB/darknet
 <br>cd darknet
 <br>修改Makefiles文件，CUDA,OPENCV,GPU，ARCH
 
