@@ -71,11 +71,12 @@ reference:https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom
 
 ## 开始训练：
 <br> ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74
+<br> ./darknet detector train data/obj.data yolo-obj.cfg darknet53.conv.74 -gpus 0,1,2,3 -map
 
 ## 进行测试：
 <br> For normal Darknet:
 <br> ./darknet detector test cfg/openimages.data cfg/yolov3-openimages.cfg yolov3-50000.weights test.jpg -thresh 0.25
-
+<br> ./darknet detector map cfg/openimages.data cfg/yolov3-openimages.cfg yolov3-50000.weights -iou thresh 0.25
 
 
 <br> For AB:
@@ -83,3 +84,4 @@ reference:https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom
 <br> ./darknet detector valid Person/yolov3.data  Person/yolov3.cfg ~/darknet/Person/backup/yolov3.backup
 <br> 进行Map计算：
 <br> ./darknet detector map Person/yolov3.data  Person/yolov3.cfg ~/darknet/Person/backup/yolov3_30000.weights -iou thresh 0.3
+<br> 单独设置test集，需要把新目录test加入到utils.c里的repalce函数中
