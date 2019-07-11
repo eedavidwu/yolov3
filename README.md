@@ -85,3 +85,4 @@ reference:https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom
 <br> 进行Map计算：
 <br> ./darknet detector map Person/yolov3.data  Person/yolov3.cfg ~/darknet/Person/backup/yolov3_30000.weights -iou thresh 0.3
 <br> 单独设置test集，需要把新目录test加入到utils.c里的repalce函数中
+<br> Relu 设置：activations.c -> activate array
